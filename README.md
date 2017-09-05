@@ -42,8 +42,10 @@ Open a new terminal, and send a service call to point the arm directly up toward
 ```sh
 $ cd ~/catkin_ws
 $ source devel/setup.bash
-$ rosservice call /arm_mover/safe_move "joint_1: 1.57 joint_2: 1.57"
-$ rosservice call /arm_mover/safe_move "joint_1: 0 joint_2: 0"
+$ rosservice call /arm_mover/safe_move "joint_1: 1.57
+joint_2: 1.57"
+$ rosservice call /arm_mover/safe_move "joint_1: 0
+joint_2: 0"
 ```
 
 To view the camera image stream, open a new terminal and use the command:
