@@ -27,8 +27,30 @@ $ source devel/setup.bash
 
 ## Launch beginner_tutorials
 
+### Examine simple publisher and subscriber nodes
+
 ```sh
 $ roslaunch beginner_tutorials talker_listener.launch
+```
+
+### Examine simple service and client nodes
+
+```sh
+$ roscore
+```
+
+Open a new terminal, rosrun server node
+```sh
+$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ rosrun beginner_tutorials add_two_ints_server.py
+```
+
+Open a new terminal, rosrun client node
+```sh
+$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ rosrun beginner_tutorials add_two_ints_client.py 1 3
 ```
 
 ## Launch simple_arm
@@ -38,7 +60,6 @@ $ roslaunch simple_arm robot_spawn.launch
 ```
 
 Open a new terminal, and send a service call to point the arm directly up towards the sky:
-
 ```sh
 $ cd ~/catkin_ws
 $ source devel/setup.bash
@@ -49,7 +70,6 @@ joint_2: 0"
 ```
 
 To view the camera image stream, open a new terminal and use the command:
-
 ```sh
 $ rqt_image_view /rgb_camera/image_raw
 ```
