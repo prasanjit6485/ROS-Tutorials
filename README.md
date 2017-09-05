@@ -1,4 +1,3 @@
-# ROS tutorials
 
 ## Installing and Configuring Your ROS Environment
 
@@ -19,11 +18,11 @@ $ catkin_make
 
 $ source devel/setup.bash
 
-## Create catkin packages
+## Clone catkin packages
 
 $ cd ~/catkin_ws/src
 
-$ git clone https://github.com/prasanjit6485/ros_tutorials or catkin_create_pkg <package_name> [depend1] [depend2] ...
+$ git clone https://github.com/prasanjit6485/ros_tutorials
 
 $ cd ~/catkin_ws
 
@@ -31,23 +30,26 @@ $ catkin_make
 
 $ source devel/setup.bash
 
-## ROS master
-
-$ roscore
-
-$ roslaunch <package_name> <filename.launch>
+## Launch beginner_tutorials
 
 $ roslaunch beginner_tutorials talker_listener.launch
 
+## Launch simple_arm
+
 $ roslaunch simple_arm robot_spawn.launch
 
-## Nodes
+Open a new terminal, and send a service call to point the arm directly up towards the sky:
 
-## Topics
+$ cd ~/catkin_ws
 
-## Messages
+$ source devel/setup.bash
 
-## Services
+$ rosservice call /arm_mover/safe_move "joint_1: 1.57 joint_2: 1.57"
 
-## Parameters
+$ rosservice call /arm_mover/safe_move "joint_1: 0 joint_2: 0"
+
+To view the camera image stream, open a new terminal and use the command:
+
+$ rqt_image_view /rgb_camera/image_raw
+
 
