@@ -74,3 +74,26 @@ To view the camera image stream, open a new terminal and use the command:
 $ rqt_image_view /rgb_camera/image_raw
 ```
 
+## Launch capture_features_and_train
+
+This tutorial helps us to capture features like color and surface normal for different objects located under models directory and train SVM to see the overall accuracy. The train classifier can further be used for object recognition prurpose.
+
+```sh
+$ export GAZEBO_MODEL_PATH=~/catkin_ws_tutorial/src/ROS-Tutorials/capture_features_and_train/models
+$ roslaunch capture_features_and_train training.launch
+```
+
+Open a new terminal, and run capture_features node to capture feature of various model and dump the training dataset for training SVM (Support Vector Machine):
+```sh
+$ cd ~/catkin_ws
+$ source devel/setup.bash
+$ export GAZEBO_MODEL_PATH=~/catkin_ws_tutorial/src/ROS-Tutorials/capture_features_and_train/models
+$ cd ~/catkin_ws/src/ROS-Tutorials/capture_features_and_train/train_datasets
+$ rosrun capture_features_and_train capture_features.py --list 3
+```
+
+Run train_svm node to see the overall accuracy of captured feature and dump the classifier which can be used for recognition purpose:
+```sh
+$ cd ~/catkin_ws/src/ROS-Tutorials/capture_features_and_train/train_datasets
+$ rosrun capture_features_and_train train_svm.py --list 3
+```
