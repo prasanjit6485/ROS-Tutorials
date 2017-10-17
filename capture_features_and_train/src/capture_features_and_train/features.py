@@ -53,7 +53,7 @@ def compute_color_histograms(cloud, using_hsv=False):
 
 
 def compute_normal_histograms(normal_cloud):
-    nbins = 64
+    nbins = 128
     bins_range = (-1,1)
 
     norm_x_vals = []
